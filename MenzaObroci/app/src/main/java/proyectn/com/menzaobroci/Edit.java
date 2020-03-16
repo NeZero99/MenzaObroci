@@ -114,7 +114,7 @@ public class Edit extends AppCompatActivity implements View.OnClickListener {
                 editor.putInt(VECERA_PREF, vecera);
                 editor.apply();
 
-                Toast.makeText(this, "Obroci su sacuvani", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Obroci su sacuvani", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

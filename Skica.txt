@@ -1,0 +1,8 @@
+-ToDo-
+	-Widget dugme
+	-Log file sta si jeo u poslednje vreme, kad i kad si dodao koliko
+	-Radno vreme menze i cene obroka, napomena da app uzima pre i posle 10 min
+	-Za vikend radno vreme i pitanje da li hoce i veceru
+	-Ikonica za app i ona za edit button
+	-Stringove sredi
+	-Recenice u padezima

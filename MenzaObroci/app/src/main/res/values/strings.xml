@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Menza Obroci</string>
+    <string name="appwidget_text">Prijatno</string>
+    <string name="add_widget">Add widget</string>
 </resources>

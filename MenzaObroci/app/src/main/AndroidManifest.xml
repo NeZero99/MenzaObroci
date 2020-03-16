@@ -9,8 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Edit"
-            android:parentActivityName=".MainActivity"></activity>
+        <receiver android:name=".DugmeWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/dugme_widget_info" />
+        </receiver>
+        <receiver android:name=".RecieverPrijatno"/>
+
+        <activity
+            android:name=".Edit"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
