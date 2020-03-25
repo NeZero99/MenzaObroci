@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +20,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-
 
     private TextView dor;
     private TextView ruc;
@@ -37,22 +37,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        upravljanjeObrocima = new UpravljanjeObrocima(this);
-
-        /*sharedPreferences = this.getSharedPreferences(Edit.MAIN_PREFS, 0);
-        preuzmiIzShareda();*/
+        upravljanjeObrocima = new UpravljanjeObrocima(this, false);
 
         dor = (TextView) findViewById(R.id.tvDorucak);
         ruc = (TextView) findViewById(R.id.tvRucak);
         vec = (TextView) findViewById(R.id.tvVecera);
 
         postaviView();
+
+        Calendar temp = Calendar.getInstance();
+        Log.v("Vreme", Integer.toString(temp.get(Calendar.DAY_OF_WEEK)));
     }
 
     private void postaviView(){
-        dor.setText("Dorucak: " + Integer.toString(upravljanjeObrocima.getDorucak()));
-        ruc.setText("Rucak: " + Integer.toString(upravljanjeObrocima.getRucak()));
-        vec.setText("Vecera: " + Integer.toString(upravljanjeObrocima.getVecera()));
+        dor.setText(getString(R.string.dorucak) + " " + Integer.toString(upravljanjeObrocima.getDorucak()));
+        ruc.setText(getString(R.string.rucak) + " " + Integer.toString(upravljanjeObrocima.getRucak()));
+        vec.setText(getString(R.string.vecera) + " " + Integer.toString(upravljanjeObrocima.getVecera()));
     }
 
     public void prijatnoOnClick(View view) {
@@ -67,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId() == R.id.action_edit) {
             Intent intent = new Intent(this, Edit.class);
+            startActivity(intent);
+            return true;
+        }
+        else if(item.getItemId() == R.id.action_istorija){
+            Intent intent = new Intent(this, Istorija.class);
+            startActivity(intent);
+            return true;
+        }
+        else if(item.getItemId() == R.id.action_info){
+            Intent intent = new Intent(this, Info.class);
             startActivity(intent);
             return true;
         }

@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Menza Obroci</string>
-    <string name="appwidget_text">Prijatno</string>
+    <string name="appwidget_text">PRIJATNO</string>
     <string name="add_widget">Add widget</string>
+    <string name="dorucak">DORUČAK: </string>
+    <string name="rucak">RUČAK: </string>
+    <string name="vecera">VEČERA: </string>
+    <string name="sacuvaj">SAČUVAJ</string>
+    <string name="prijatno">PRIJATNO</string>
+    <string name="edit">Edit</string>
+    <string name="istorija">Istorija</string>
+    <string name="info">Info</string>
+    <string name="infoString"><b>Radno vreme menze:\nRadnim danima:</b>\nDoručak: 07:00 – 09:00\n
+        Ručak: 11:00 - 15:00\nVečera: 17:30 - 20:00\n<b>Vikendom:</b>\nDoručak: 07:00 - 09:00\n
+        Ručak: 11:00 - 14:30\nVečera: deli se suvi obrok za vreme ručka\n\n
+        <b>Cene obroka</b>:\nDoručak: 40,00 din\n Ručak: 72,00 din\nVečera: 59,00 din\n\n
+        <b>app by: </b>Nemanja Radoičić</string>
 </resources>

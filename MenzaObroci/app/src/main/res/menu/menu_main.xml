@@ -3,9 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/action_edit"
-        android:title="Edit"
-        android:icon="@android:drawable/edit_text"
+        android:title="@string/edit"
+        android:icon="@drawable/ic_edit"
         android:orderInCategory="1"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_istorija"
+        android:title="@string/istorija"
+        android:orderInCategory="2"
+        app:showAsAction="collapseActionView"/>
+    <item android:id="@+id/action_info"
+        android:title="@string/info"
+        android:orderInCategory="2"
+        app:showAsAction="collapseActionView" />
 
 </menu>

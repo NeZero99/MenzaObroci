@@ -29,6 +29,7 @@ public class DugmeWidget extends AppWidgetProvider {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             Intent intent = new Intent(context, RecieverPrijatno.class);
+            intent.putExtra(RecieverPrijatno.ACTION_ID, 0);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dugme_widget);

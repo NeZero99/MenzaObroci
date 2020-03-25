@@ -1,8 +1,9 @@
 -ToDo-
-	-Widget dugme
-	-Log file sta si jeo u poslednje vreme, kad i kad si dodao koliko
-	-Radno vreme menze i cene obroka, napomena da app uzima pre i posle 10 min
-	-Za vikend radno vreme i pitanje da li hoce i veceru
+	-Widget dugmme dizajn i kako ce da izgleda u widget meniju
 	-Ikonica za app i ona za edit button
-	-Stringove sredi
-	-Recenice u padezima
+	-Sredjivanje dizajna
+	-Sredi stringove i u klasama
+
+-Problemi-
+	-Skida veceru nedeljom (proveriti kada dodje vikend) mislim da bi sad trebalo da radi jer je || bio problem
+	-Tu jos problem oko vecere

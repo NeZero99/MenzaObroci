@@ -9,14 +9,15 @@
     <include
         layout="@layout/toolbar_main"
         android:id="@+id/toolbar"/>
-
     <Button
         android:id="@+id/btnOduzmi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Prijatno"
-        android:textSize="25dp"
+        android:text="@string/prijatno"
+        android:textStyle="bold|italic"
+        android:textSize="27sp"
+        android:paddingHorizontal="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="prijatnoOnClick"
@@ -27,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -38,21 +40,21 @@
             android:id="@+id/tvDorucak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dorucak: 0"
+            android:text="@string/dorucak"
             android:textSize="40sp"
             android:layout_marginBottom="15dp"/>
         <TextView
             android:id="@+id/tvRucak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rucak: 0"
+            android:text="@string/rucak"
             android:textSize="40sp"
             android:layout_marginBottom="15dp"/>
         <TextView
             android:id="@+id/tvVecera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vecera: 0"
+            android:text="@string/vecera"
             android:textSize="40sp"
             android:layout_marginBottom="15dp"/>
     </LinearLayout>

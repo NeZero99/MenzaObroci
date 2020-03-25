@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Edit extends AppCompatActivity implements View.OnClickListener {
 
     public static final String MAIN_PREFS = "mainPrefs";
@@ -24,6 +27,9 @@ public class Edit extends AppCompatActivity implements View.OnClickListener {
     private int dorucak;
     private int rucak;
     private int vecera;
+    private int dorucakPre;//ovi pre dodati da bi se racunala razlika koliko je dodato
+    private int rucakPre;
+    private int veceraPre;
 
     private TextView dor;
     private TextView ruc;
@@ -50,6 +56,9 @@ public class Edit extends AppCompatActivity implements View.OnClickListener {
         dorucak = sharedPreferences.getInt(DORUCAK_PREF, 0);
         rucak = sharedPreferences.getInt(RUCAK_PREF, 0);
         vecera = sharedPreferences.getInt(VECERA_PREF, 0);
+        dorucakPre = dorucak;
+        rucakPre = rucak;
+        veceraPre = vecera;
         postaviView();
         //listeneri za Dugmice;
         Button m1 = (Button) findViewById(R.id.btnDorucakMinus);
@@ -108,16 +117,52 @@ public class Edit extends AppCompatActivity implements View.OnClickListener {
                 postaviView();
                 break;
             case R.id.btnSacuvaj:
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(DORUCAK_PREF, dorucak);
-                editor.putInt(RUCAK_PREF, rucak);
-                editor.putInt(VECERA_PREF, vecera);
-                editor.apply();
+                if(dorucak != dorucakPre || rucak != rucakPre || vecera != veceraPre) {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt(DORUCAK_PREF, dorucak);
+                    editor.putInt(RUCAK_PREF, rucak);
+                    editor.putInt(VECERA_PREF, vecera);
+                    editor.putString(Istorija.ISTORIJA_PREF, dodajLog());
+                    editor.apply();
 
-                Toast.makeText(this, "Obroci su sacuvani", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Obroci su sačuvani", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(this, "Nemate izmena", Toast.LENGTH_SHORT).show();
+                }
                 break;
             default:
                 break;
         }
+    }
+
+    private String dodajLog(){
+        String log;
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy HH:mm");
+        int razlD = dorucak - dorucakPre;
+        int razlR = rucak - rucakPre;
+        int razlV = vecera - veceraPre;
+        log = simpleDateFormat.format(cal.getTime()) + " - Izmenjeno: ";
+        if(razlD < 0){
+            log += "Doručak: " + razlD + "; ";
+        }
+        else{
+                log += "Doručak: +" + razlD + "; ";
+        }
+        if(razlR < 0){
+            log += "Ručak: " + razlR + "; ";
+        }
+        else{
+            log += "Ručak: +" + razlR + "; ";
+        }
+        if(razlV < 0){
+            log += "Večera: " + razlV;
+        }
+        else{
+            log += "Večera: +" + razlV;
+        }
+        log += "\n" + "\n";
+        return log + sharedPreferences.getString(Istorija.ISTORIJA_PREF, "");
     }
 }
